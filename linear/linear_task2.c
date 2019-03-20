@@ -80,7 +80,7 @@ LinkList* multiply(LinkList *list1, LinkList *list2, int len1, int len2) {
 	note3->next = NULL;
 	LinkList *list = simplify(list3);//将第三个链表进行化简
 	return list;
-}
+}//乘积函数，得到相乘之后的多项式
 LinkList* sort(LinkList *list) {
 	LinkList *head = list;
 	list = list->next;
@@ -96,13 +96,55 @@ LinkList* sort(LinkList *list) {
 				temp = note2->exp;
 				note2->exp = note1->exp;
 				note1->exp = temp;
-			}
+			}//如果在前节点的指数大于在后节点的指数，那么二者的节点内容进行交换
 			note2 = note2->next;
 		}
 		note1 = note1->next;
 		note2 = note1->next;
 	}
 	return head;
+}//将相乘之后的多项式进行排序，即指数大的节点放到指数小的节点之后
+void print(LinkList *list, int len1, int len2) {
+	int m1 = len1;
+	int m2 = len2;
+	puts("两个多项式的乘积为:");
+	list = list->next;
+	if (list->exp == 0 && list->coef != 0)
+		printf("%d", list->coef);
+	else if (list->coef == 1 && list->exp == 1)
+		printf("x");
+	else if (list->coef == -1 && list->exp == 1)
+		printf("-x");
+	else if (list->coef == 1)
+		printf("x^%d", list->exp);
+	else if (list->coef == -1)
+		printf("-x^%d", list->exp);
+	else if (list->coef == 0)
+		printf("");
+	else
+		printf("%dx^%d", list->coef, list->exp);//输出多项式的第一项
+	list = list->next;
+	while (list != NULL) {
+		if (list->coef == 0)
+			printf("");
+		else if (list->coef == 1 && list->exp == 1)
+			printf("+x");
+		else if (list->coef == -1 && list->exp == 1)
+			printf("-x");
+		else if (list->coef > 0 && list->exp == 1)
+			printf("+%dx", list->coef);
+		else if (list->coef < 0 && list->exp == 1)
+			printf("%dx", list->coef);
+		else if (list->coef == -1)
+			printf("-x^%d", list->exp);
+		else if (list->coef == 1)
+			printf("+x^%d", list->exp);
+		else if(list->coef>0)
+			printf("+%dx^%d", list->coef, list->exp);
+		else
+			printf("%dx^%d", list->coef, list->exp);
+		list = list->next;
+	}//输出多项式的其余项
 }
 int main()
 {
@@ -112,40 +154,15 @@ int main()
 	scanf("%d", &m1);//输入第一个多项式的项数
 	puts("请输入第二个多项式的项数");
 	scanf("%d", &m2);//输入第二个多项式的项数
-	poly1 = creat(m1);
-	poly2 = creat(m2);
 	if (m1 != 0 && m2 != 0) {
-		puts("两个多项式的乘积为:");
-		poly3 = multiply(poly1, poly2, m1, m2);
-		head = sort(poly3);
-		head = head->next;
-		if (head->exp == 0)
-			printf("%d", head->coef);
-		else if (head->coef == 1)
-			printf("x^%d", head->exp);
-		else if (head->coef == -1)
-			printf("-x^%d", head->exp);
-		else if (head->coef == 0)
-			printf("");
-		else
-			printf("%dx^%d", head->coef, head->exp);//输出多项式的第一项
-		head = head->next;
-		while (head != NULL) {
-			if (head->coef == 1)
-				printf("+x^%d", head->exp);
-			else if (head->coef == -1)
-				printf("-x^%d", head->exp);
-			else if (head->coef == 0)
-				printf("");
-			else if (head->coef > 0)
-				printf("+%dx^%d", head->coef, head->exp);
-			else
-				printf("%dx^%d", head->coef, head->exp);
-			head = head->next;
-		}//输出多项式的其余项
+		poly1 = creat(m1);
+		poly2 = creat(m2);//创建多项式
+		poly3 = multiply(poly1, poly2, m1, m2);//将多项式相乘并得出结果
+		head = sort(poly3);//利用排序函数将指数小的节点放在指数大的节点之前
+		print(head, m1, m2);//利用输出函数输出结果
+		printf("\n");
 	}
 	else
-		puts("多项式为0");
-	printf("\n");
+		puts("多项式的乘积为0");
 	return 0;
 }
