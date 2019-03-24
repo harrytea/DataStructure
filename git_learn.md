@@ -29,3 +29,9 @@ git remote add origin git@github.com:harrytea/<repos_name> 将本地内容与git
 git pull -rebase origin master 将github中的文件与本地合并
 git push -u origin master 将本地代码上传至github（第一次需要加-u）
 git clone git@github.com:harrytea/<repos_name> 克隆仓库到本地
+git branch 查看分支
+git branch <name> 创建分支
+git checkout <name> 切换分支
+git checkout -b <name> 创建+切换分支
+git merge <name> 合并某分支到当前分支
+git branch -d <name> 删除分支
