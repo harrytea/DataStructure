@@ -26,7 +26,7 @@ void InitList(Seqlist *list) {
 	list->data = (int*)malloc(ListSize * sizeof(int));
 	if (list->data == NULL) {
 		printf("存储分配失败!\n");
-		exit(1);
+		exit(1);//程序异常运行导致退出程序，退出前可有提示信息(操作系统提供的函数库)
 	}
 	list->length = 0;
 	list->listsize = ListSize;
@@ -151,3 +151,28 @@ int main()
 	int numb = Delete(&head, 3);
 	return 0;
 }
+/*
+void InitList(Seqlist &list) {
+	list.data = (int*)malloc(ListSize * sizeof(int));
+	if (list.data == NULL) {
+		printf("存储分配失败!\n");
+		exit(1);
+	}
+	list.length = 0;
+	list.listsize = ListSize;
+}//顺序表初始化，形参为引用的形式
+void creatlist(Seqlist &list) {
+	puts("input the length is");
+	scanf("%d", &list.length);
+	printf("input %d data\n", list.length);
+	for (int i = 0; i < list.length; i++) 
+		scanf("%d", &(list.data[i]));
+}//顺序表的建立，赋值
+int main()
+{
+	Seqlist head;
+	InitList(head);
+	creatlist(head);
+	return 0;
+}*/
+//引用初始化(c语言中并不存在引用的概念)

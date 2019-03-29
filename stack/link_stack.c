@@ -1,4 +1,6 @@
 //栈的链式表示
+//链式栈无满栈的问题，空间可扩充，插入删除仅在栈顶执行
+//链式栈的栈顶在链头
 /*常用操作
 1.栈顶和栈结点指针
 2.栈的初始化
@@ -14,7 +16,7 @@ typedef struct node {
 	StackData data;//结点
 	struct node *link;//链指针
 }StackNode;
-typedef struct {
+typedef struct{
 	StackNode *top;
 }LinkStack;//栈顶指针
 void InitStack(LinkStack *s) {
