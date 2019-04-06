@@ -1,6 +1,6 @@
 //队列（queue_link）
 //只允许在表的一端进行插入，而在另一端删除元素的线性表
-//无队满问题，但有队空问题
+//无队满问题，但有队空问题//
 #include<stdio.h>
 #include<stdlib.h>
 typedef int QueueData;

@@ -2,14 +2,19 @@ git指令：
 mkdir cd pwd ls(-ah) 
 
 cd~/cd 返回home
+
 cd ..  返回上一级
+
 cd ../.. 返回上两级
+
 cd - <menu> 返回指定目录
 
 rm -rf .git 删除git
+
 git init  git可管理的仓库（初始化git）
 
 vi  编辑
+
 cat 显示整个文件
 
 git add <file>把文件添加给仓库
@@ -39,7 +44,7 @@ git reset HEAD <file> 撤销对暂缓区的add
 
 rm <file> 删除工作区的文件
 
-git rm <file> 
+git rm <file> 删除一个文件
 
 git commit -m "message" 删除版本库中的文件
 
