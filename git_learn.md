@@ -1,5 +1,16 @@
-git指令：
-mkdir cd pwd ls(-ah) 
+git config --global user.name "**"
+
+git config --global user.email "**"
+
+#### git指令：
+
+mkdir 创建文件夹
+
+cd 进入文件夹
+
+pwd 显示当前目录
+
+ ls -ah 显示隐藏目录
 
 cd~/cd 返回home
 
@@ -17,18 +28,21 @@ vi  编辑
 
 cat 显示整个文件
 
-git add <file>把文件添加给仓库
+##### 提交文件：
 
-git add . 目录下的所有文件同时提交
+1. git add <file>把文件添加给仓库
 
-git commit -m "message" 把文件提交给仓库
+2. git add . 目录下的所有文件同时提交
+
+3. git commit -m "message" 把文件提交给仓库
 
 git status 查看仓库当前的状态
 
 git diff <file>  查看修改的内容
 
-git log
-git log --pretty=oneline 查看版本提交历史
+git log 显示从最近到最远的提交日志
+
+git log --pretty=oneline 查看版本提交历史（显示一行）
 
 git reflog  查看命令历史
 

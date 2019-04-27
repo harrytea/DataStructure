@@ -6,7 +6,7 @@
 
 树是由n（n>=0）个结点的有限集合。如果n=0，称为空树；如果n>0，则有且只有一个特定的称之为根（Root）的结点，当n>1，除根以外的其他结点划分为m（m>0）个互不相交的有限集T1，T2，……Tm，其中每个集合本身又是一棵树，并且称为根的**子树**（SubTree）
 
-![alt text](https://github.com/harrytea/DataStructure/tree/master/image/1556352112425.png) 
+![alt text](C:/Users/DELL/AppData/Roaming/Typora/typora-user-images/1556352112425.png) 
 
 其中，A是根；其余结点分成三个互不相交的子集，**T1={B,E,F,K,L}；T2={C,G}；T3={D,H,I,J,M}**,T1,T2,T3都是根A的子树，且本身也是一棵树
 
